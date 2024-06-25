@@ -1,5 +1,4 @@
 """Реализация игры сапёр на классах."""
-from typing import Any
 
 import random
 
@@ -21,7 +20,7 @@ class GamePole():
         """."""
         self.N: int = N
         self.M: int = M
-        self.pole: list[list[Any]] = (
+        self.pole: list[list[Cell]] = (
             [
                 [Cell(0, False) for _ in range(N)]
                 for _ in range(N)

@@ -7,23 +7,23 @@ class ObjList():
 
     def __init__(self, data: Optional[Any]) -> None:
         """."""
-        self.__next: Optional[Any] = None
-        self.__prev: Optional[Any] = None
+        self.__next: Optional[ObjList] = None
+        self.__prev: Optional[ObjList] = None
         self.__data: Optional[Any] = data
 
-    def set_next(self, obj) -> None:
+    def set_next(self, obj: Optional['ObjList']) -> None:
         """Изменение приватного свойства __next."""
         self.__next = obj
 
-    def set_prev(self, obj) -> None:
+    def set_prev(self, obj: Optional['ObjList']) -> None:
         """Изменение приватного свойства __prev."""
         self.__prev = obj
 
-    def get_next(self) -> Optional[Any]:
+    def get_next(self) -> Optional['ObjList']:
         """Получение значение приватного свойства __next."""
         return self.__next
 
-    def get_prev(self) -> Optional[Any]:
+    def get_prev(self) -> Optional['ObjList']:
         """Получение значения приватного свойства __prev."""
         return self.__prev
 
@@ -41,10 +41,10 @@ class LinkedList():
 
     def __init__(self) -> None:
         """."""
-        self.head: Optional[Any] = None
-        self.tail: Optional[Any] = None
+        self.head: Optional[ObjList] = None
+        self.tail: Optional[ObjList] = None
 
-    def add_object(self, obj) -> None:
+    def add_object(self, obj: ObjList) -> None:
         """Добавление нового объекта obj в конец связного списка."""
         if self.head is None:
             self.head = obj
@@ -66,9 +66,9 @@ class LinkedList():
             new_last.set_next(None)
             self.tail = new_last
 
-    def get_data(self) -> Optional[Any]:
+    def get_data(self) -> Optional[list[Optional[ObjList]]]:
         """Получение списка всех объектов связного списка."""
-        data: list[Any] = []
+        data: list[Optional[ObjList]] = []
         obj = self.head
         while obj is not None:
             data.append(obj.get_data())

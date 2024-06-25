@@ -52,18 +52,20 @@ class Router:
                           {server.ip} - отправлены!""")
 
 
-router = Router()
+if __name__ == '__main__':
 
-sv1 = Server()
-sv2 = Server()
+    router = Router()
 
-data1 = Data('строка с данными', sv1.ip)
-data2 = Data('строка с данными2', sv2.ip)
+    sv1 = Server()
+    sv2 = Server()
 
-router.link(sv1)
-router.link(sv2)
+    data1 = Data('строка с данными', sv1.ip)
+    data2 = Data('строка с данными2', sv2.ip)
 
-router.upload_data(data1)
-router.upload_data(data2)
+    router.link(sv1)
+    router.link(sv2)
 
-router.send_data()
+    router.upload_data(data1)
+    router.upload_data(data2)
+
+    router.send_data()
